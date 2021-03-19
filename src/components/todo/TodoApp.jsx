@@ -20,7 +20,7 @@ class TodoApp extends Component {
 
 class WelcomeComponent extends Component{
     render(){
-        return <div>Welcome in28minutes</div>
+        return <div>Welcome in28minutes!!!!</div>
     }
 }
 

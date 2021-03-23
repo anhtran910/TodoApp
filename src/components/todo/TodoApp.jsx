@@ -1,14 +1,19 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 class TodoApp extends Component {
     render() {
         return (
             <div className="TodoApp"> 
                 <Router>
                     <>
+                    <Switch>
                     <Route path="/" exact component={LoginComponent}/>
                     <Route path="/login" component={LoginComponent}/>
-                    <Route path="/welcome" component={WelcomeComponent}/>
+                    <Route path="/welcome/:name" component={WelcomeComponent}/>
+                    <Route path="/todos" component={ListTodosComponent}/>
+                    <Route component={ErrorComponent}/>
+
+                    </Switch>
                     </>
                 </Router>
                 {/*<LoginComponent/>
@@ -18,11 +23,30 @@ class TodoApp extends Component {
     }
 }
 
-class WelcomeComponent extends Component{
+class ListTodosComponent extends Component{
+    
+    constructor(props){
+        super(props)
+        this.state={
+            todo:{id:1, description:'Learn React'}
+        }
+    }
+
     render(){
-        return <div>Welcome in28minutes!!!!</div>
+        return <div>List Todos</div>
     }
 }
+
+class WelcomeComponent extends Component{
+    render(){
+        return <div>Welcome {this.props.match.params.name}</div>
+    }
+}
+
+function ErrorComponent(){
+    return <div>An Error Occurred. I don't know what to do! Contact support at abcd-efgh-ijkl</div>
+}
+
 
 class LoginComponent extends Component{
     constructor(props){
@@ -63,9 +87,10 @@ class LoginComponent extends Component{
     loginClicked(){
         //in28minutes, dummy
         if(this.state.username==='in28minutes' && this.state.password==='dummy'){
-            console.log('Successful')
-            this.setState({showSuccessMessage:true})
-            this.setState({hasLoginFailed:false})
+            //console.log('Successful')
+            this.props.history.push(`/welcome/${this.state.username}`)
+            //this.setState({showSuccessMessage:true})
+            //this.setState({hasLoginFailed:false})
 
         }
             

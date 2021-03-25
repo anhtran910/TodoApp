@@ -6,6 +6,9 @@ import Counter from './components/counter/Counter';
 import logo from './logo.svg';
 import TodoApp from './components/todo/TodoApp'
 import './App.css';
+import './bootstrap.css';
+import { withRouter} from 'react-router-dom';
+
 
 class App extends Component {
   render() {

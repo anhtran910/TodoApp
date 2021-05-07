@@ -60,15 +60,15 @@ class CounterButton extends Component {
     //state=> counter=0
     
 
-    constructor(){
-        super();
-        // this.state={
-        //     counter: 0,
-        //     secondCounter: 100
-        // }
-        // this.increment=this.increment.bind(this);
-        // this.decrement=this.decrement.bind(this);
-    }
+    // constructor(){
+    //     super();
+    //     // this.state={
+    //     //     counter: 0,
+    //     //     secondCounter: 100
+    //     // }
+    //     // this.increment=this.increment.bind(this);
+    //     // this.decrement=this.decrement.bind(this);
+    // }
 
     render() {
    // render=()=> {
